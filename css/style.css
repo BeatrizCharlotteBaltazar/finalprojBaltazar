@@ -1,0 +1,93 @@
+html {
+    scroll-behavior: smooth;
+}
+
+/* Disable smooth scrolling for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+body {
+    background-color: palegoldenrod;
+    padding: 5px;
+    margin: 15px;
+    font-size: 25px;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 1.95em;
+}
+
+h2 {
+    text-align: center;
+}
+
+li {
+    margin-top: 20px;
+}
+
+img {
+    border: 5px solid bisque;
+    width: 100%;
+}
+
+/* Grid layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two-column layout */
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+    margin: 0 auto; /* Center the grid */
+}
+
+/* Make figures circular by default */
+figure {
+    text-align: center;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 10px;
+}
+
+/* Figures that span both columns should NOT be circular */
+.grid figure:last-child,
+.grid figure:nth-child(3n) {
+    grid-column: span 2;
+    border-radius: 0; /* Remove circular shape */
+}
+
+/* Large screen view: 992px and above */
+@media (min-width: 992px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr); /* Keep two columns */
+    }
+
+    /* Every third figure takes up both columns */
+    .grid figure:nth-child(3n) {
+        grid-column: span 2;
+    }
+
+    /* Remove border-radius for all figures at large screen */
+    figure {
+        border-radius: 0;
+    }
+}
+
+/* Dark mode settings */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #5a2e4d; /* Dark background */
+        color: #f8d450; /* Yellow-ish text */
+    }
+
+    figure {
+        background-color: #814377; /* Darker figure background */
+        color: #e7b500; /* Yellow-ish text */
+        border: 5px solid black; /* Black border */
+    }
+}
